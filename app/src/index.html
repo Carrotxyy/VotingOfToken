@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <style>
+       
+        .tableTitle{
+            background-color: #c0f5ff;
+            font-weight: 800;
+            font-size: 16px;
+        }
+        td{
+            vertical-align: middle !important;
+            border: 1px solid #f8f6f6  !important;
+        }
+        .tableTitle > td{
+            border: 0px !important;
+        }
+        .center{
+            text-align: center;
+        }
+        .margin-top{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5  col-md-offset-1">
+                <h1>基于Token的投票系统</h1>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 左上角投票情况区域 -->
+            <div class="col-md-5 col-md-offset-1">
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="tableTitle">
+                                <td colspan="2">选举人信息</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>zhangsan</td>
+                                <td id="candidate-1">-</td>
+                            </tr>
+                            <tr>
+                                <td>lisi</td>
+                                <td id="candidate-2">-</td>
+                            </tr>
+                            <tr>
+                                <td>wangwu</td>
+                                <td id="candidate-3">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 右上角购买token区域 -->
+            <div class="col-md-5 ">
+                
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="tableTitle">
+                            <td colspan="2">代币(token)信息</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>发行总量</td>
+                            <td id="totalToken">-</td>
+                        </tr>
+                        <tr>
+                            <td>剩余总量</td>
+                            <td id="nowToken">-</td>
+                        </tr>
+                        <tr>
+                            <td>token购买价格</td>
+                            <td id="priceToken">-</td>
+                        </tr>
+                        <tr>
+                            <td>token售出总量</td>
+                            <td id="soldTotal">-</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="tokenNumber" class="form-control" placeholder="1 token = 1 eth">
+                            </td>
+                            <td >
+                                <button id="buyToken" class="btn btn-primary">购买token</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row margin-top" >
+            <!-- 左下角投票区域 -->
+            <div class="col-md-5 col-md-offset-1">
+                
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="tableTitle">
+                            <td colspan="2">投票区域</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>选举人</td>
+                            <td >
+                                <input type="text" id="candidateName" class="form-control" placeholder="请输入候选人的名字">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>token数量</td>
+                            <td >
+                                <input type="text" id="voteNumber" class="form-control" placeholder="请输入可用的token数量">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="center">
+                                <button id="confirmVote" class="btn btn-primary">确认投票</button>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 右下角投票人信息区域 -->
+            <div class="col-md-5">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="tableTitle">
+                            <td colspan="2">投票人信息</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>账号地址</td>
+                            <td id="voterAddr">
+                                <input type="text" id="candidateAddr" class="form-control" placeholder="请输入投票的账号地址">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="center">
+                                <button id="searchVote" class="btn btn-primary">查询投票人</button>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="panel">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>token总量</td>
+                            <td id="userTotalToken">-</td>
+                        </tr>
+                        <tr>
+                            <td>剩余token</td>
+                            <td id="balanceToken">-</td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="tableTitle">
+                                <td colspan="2">投票记录</td>
+                            </tr>
+                        </thead>
+                        <tbody id="displayArea">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
+<script src="./index.js"></script>
+<script src="./layer/layer.js"></script>
+</html>
