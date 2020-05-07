@@ -20,7 +20,7 @@ const App = {
     try {
       
       const Voting = contract(VotingData)
-      //获取的是客户端metamask的web3或者是geth的web3
+      //获取的是客户端metamask或者是geth
       Voting.setProvider( web3.currentProvider )
       // 加载合约
       this.instance = await Voting.deployed()
@@ -179,6 +179,7 @@ window.App = App;
 
 
 $(function(){
+  // 连接本地geth( || ganache-cli)
   const provider = new Web3.providers.HttpProvider("http://127.0.0.1:8546")
   App.web3 = new Web3(provider)
   // 投票人信息隐藏
@@ -186,20 +187,3 @@ $(function(){
   App.start()
 })
 
-// window.addEventListener("load", function() {
-//   if (window.ethereum) {
-//     // use MetaMask's provider
-//     App.web3 = new Web3(window.ethereum);
-//     window.ethereum.enable(); // get permission to access accounts
-//   } else {
-//     console.warn(
-//       "No web3 detected. Falling back to http://127.0.0.1:8545. You should remove this fallback when you deploy live",
-//     );
-//     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-//     App.web3 = new Web3(
-//       new Web3.providers.HttpProvider("http://127.0.0.1:8545"),
-//     );
-//   }
-
-//   App.start();
-// });

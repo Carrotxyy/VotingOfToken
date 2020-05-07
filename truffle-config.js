@@ -23,7 +23,8 @@
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
-
+const HDWalletProvider = require("truffle-hdwallet-provider")
+const mnemonic = "merry raven segment novel smile affair arm pledge panther firm shoulder heavy"
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -42,6 +43,14 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
+    
+    kovan: { 
+      provider: function() { 
+        return new HDWalletProvider(mnemonic,
+                "https://kovan.infura.io/v3/5d548f4c49fa4903919203a144e63d44") 
+        }, 
+      network_id: 42 
+    },
     development: {
      host: "127.0.0.1",     // Localhost (default: none)
      port: 8546,            // Standard Ethereum port (default: none)
@@ -82,9 +91,9 @@ module.exports = {
   },
 
   // Set default mocha options here, use special reporters etc.
-  mocha: {
-    timeout: 100000
-  },
+  // mocha: {
+  //   timeout: 100000
+  // },
 
   // Configure your compilers
   compilers: {
